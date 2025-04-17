@@ -12,8 +12,8 @@
 
     <main>
         <ul id="lista_camisetas"></ul>
-        <p id="p1">Camiseta Preta - R$160</p> <button onclick="camisa1()" id="camisaID">Adicionar</button>
-        <p id="p2">Camiseta Branca - R$120</p> <button onclick="camisa1()" id="camisaID">Adicionar</button>
+        <p>Camiseta Preta - R$160</p> <button onclick="camisa1()" id="camisaID">Adicionar</button>
+        <p>Camiseta Branca - R$120</p> <button onclick="camisa2()" id="camisaID">Adicionar</button>
 
         <h1 id="carrinho_camisetas">Carrinho:</h1>
         <p>Total: </p>
@@ -25,7 +25,13 @@
 <script>
     function camisa1(){
         let camisaLista = document.createElement("li");
-        camisaLista.innerText = "Adicionar Item";
+        camisaLista.innerText = "Camiseta Preta - R$160";
+        document.getElementById("carrinho_camisetas").appendChild(camisaLista)
+    }
+
+    function camisa2(){
+        let camisaLista = document.createElement("li");
+        camisaLista.innerText = "Camiseta Branca - R$120";
         document.getElementById("carrinho_camisetas").appendChild(camisaLista)
     }
 </script>
