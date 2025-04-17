@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+<body>
+    <header>
+        <h1>Camisetas</h1>
+    </header>
+
+    <main>
+        <ul id="lista_camisetas"></ul>
+        <p id="p1">Camiseta Preta - R$160</p> <button onclick="camisa1()" id="camisaID">Adicionar</button>
+        <p id="p2">Camiseta Branca - R$120</p> <button onclick="camisa1()" id="camisaID">Adicionar</button>
+
+        <h1 id="carrinho_camisetas">Carrinho:</h1>
+        <p>Total: </p>
+    </main>
+
+    <footer></footer>
+</body>
+
+<script>
+    function camisa1(){
+        let camisaLista = document.createElement("li");
+        camisaLista.innerText = "Adicionar Item";
+        document.getElementById("carrinho_camisetas").appendChild(camisaLista)
+    }
+</script>
+
+</html>
