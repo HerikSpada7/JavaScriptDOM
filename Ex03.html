@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 3</title>
+    <title>Compras</title>
 </head>
+
 <body>
     <header>
         <h1>Camisetas</h1>
     </header>
 
     <main>
-        <ul id="lista_camisetas"></ul>
-        <p>Camiseta Preta - R$160</p> <button onclick="camisa1()" id="camisaID">Adicionar</button>
-        <p>Camiseta Branca - R$120</p> <button onclick="camisa2()" id="camisaID">Adicionar</button>
 
-        <h1 id="carrinho_camisetas">Carrinho:</h1>
-        <p>Total: </p>
+        <p> Camiseta Preta - R$50 </p> <button onclick="adicionarAoCarrinho('Camiseta Preta', 50)">Adicionar </button>
+
+        <p> Camiseta Branca - R$40 </p> <button onclick="adicionarAoCarrinho('Camiseta Branca', 40)">Adicionar </button>
+
+
+        <h2>Carrinho:</h2>
+        <ul id="lista_carrinho"></ul>
+        <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
     </main>
 
     <footer></footer>
+
+    <script>
+        let total = 0;
+
+        function adicionarAoCarrinho(nome, preco) {
+            let lista = document.getElementById('lista-carrinho');
+            let item = document.createElement('li');
+            item.textContent = `${nome} - R$ ${preco.toFixed(2)}`;
+
+            lista.appendChild(item);
+
+            total += preco;
+            document.getElementById('total').textContent = total.toFixed(2);
+
+
+            let botaoExcluir = document.createElement("button");
+            botaoExcluir.innerText = "Excluir";
+            item.appendChild(botaoExcluir);
+
+            botaoExcluir.onclick = () => {
+                item.remove();
+                total -= preco;
+                document.getElementById('total').textContent = total.toFixed(2);
+
+            }
+        }
+    </script>
 </body>
 
-<script>
-    function camisa1(){
-        let camisaLista = document.createElement("li");
-        camisaLista.innerText = "Camiseta Preta - R$160";
-        document.getElementById("carrinho_camisetas").appendChild(camisaLista)
-    }
-
-    function camisa2(){
-        let camisaLista = document.createElement("li");
-        camisaLista.innerText = "Camiseta Branca - R$120";
-        document.getElementById("carrinho_camisetas").appendChild(camisaLista)
-    }
-</script>
 
 </html>
